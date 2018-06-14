@@ -1,4 +1,13 @@
 <?php
+$servername ="localhost";
+$username = "root";
+$password = "";
+$dbname = "arduino";
+$objConnect = mysqli_connect($servername,$username,$password,$dbname) or die("Error Connect to Database");
+$SQL = "SELECT * FROM temp";
+$objQuery = mysqli_query($objConnect,$SQL) or die ("Error Query [".$strSQL."]");
+
+
 $strAccessToken = "sSDv7p584jZ76zRoS3qc1n2VgpPeCRWlIsnYKAiYMR8xcWYPtsMjCxMQiegFygBAMiRRxoNuIUlC5I+sGTTShnJiV637tpjiiotwgvgIQKNLan+rfsTb/wl13EiLqUBmgNvv17qw6B2pnt8Xj/LxjAdB04t89/1O/w1cDnyilFU=";
  
 $content = file_get_contents('php://input');
@@ -25,6 +34,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+}else if($arrJson['events'][0]['message']['text'] == "temp"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = echo $objResult["temp"];
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
