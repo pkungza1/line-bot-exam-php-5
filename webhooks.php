@@ -1,12 +1,4 @@
 <?php // callback.php
-$servername ="localhost";
-$username = "root";
-$password = "";
-$dbname = "arduino";
-$objConnect = mysqli_connect($servername,$username,$password,$dbname) or die("Error Connect to Database");
-$SQL = "SELECT * FROM temp";
-$objQuery = mysqli_query($objConnect,$SQL) or die ("Error Query [".$strSQL."]");
-
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'sSDv7p584jZ76zRoS3qc1n2VgpPeCRWlIsnYKAiYMR8xcWYPtsMjCxMQiegFygBAMiRRxoNuIUlC5I+sGTTShnJiV637tpjiiotwgvgIQKNLan+rfsTb/wl13EiLqUBmgNvv17qw6B2pnt8Xj/LxjAdB04t89/1O/w1cDnyilFU=';
