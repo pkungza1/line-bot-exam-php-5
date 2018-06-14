@@ -49,5 +49,5 @@ curl_close($ch);
 echo $result . "\r\n";
 }
 }
-}
+}//
 echo "OK";
