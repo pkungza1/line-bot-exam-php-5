@@ -11,6 +11,16 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
+$servername ="localhost";
+$username = "root";
+$password = "";
+$dbname = "arduino";
+$objConnect = mysqli_connect($servername,$username,$password,$dbname) or die("Error Connect to Database");
+$SQL = "SELECT * FROM temp";
+$objQuery = mysqli_query($objConnect,$SQL) or die ("Error Query [".$strSQL."]");
+while($objResult = mysqli_fetch_array($objQuery))
+{
+
 if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -26,6 +36,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+}else if($arrJson['events'][0]['message']['text'] == "temp"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = echo $objResult["temp"];
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -33,6 +48,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
  
+ mysqli_close($objConnect);
  
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
