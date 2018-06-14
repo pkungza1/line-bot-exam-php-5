@@ -4,6 +4,10 @@ $objDB = mysql_select_db("arduino");
 $strSQL = "SELECT * FROM temp";
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
 ?>
+<?php
+while($objResult = mysql_fetch_array($objQuery))
+{
+?>
 
 
 <?php
@@ -39,6 +43,10 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
+ 
+<?php
+ mysql_close($objConnect);
+?>
  
  
 $ch = curl_init();
