@@ -1,4 +1,12 @@
 <?php
+$servername ="localhost";
+$username = "root";
+$password = "";
+$dbname = "arduino";
+$objConnect = mysqli_connect($servername,$username,$password,$dbname) or die("Error Connect to Database");
+$SQL = "SELECT * FROM temp";
+$objQuery = mysqli_query($objConnect,$SQL) or die ("Error Query [".$strSQL."]");
+
 /*while($objResult = mysql_fetch_array($objQuery))
 {
 ?>
