@@ -13,7 +13,7 @@ $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
  <td align="center"><?php echo $objResult["humidity"];?></td>
     <td align="center"><?php echo $objResult["date"];?></td>
   </tr>*/
-///////////////////////////////////////////////////////////////***////////////////////////////////////////
+mysql_close($objConnect);
  
 $strAccessToken = "sSDv7p584jZ76zRoS3qc1n2VgpPeCRWlIsnYKAiYMR8xcWYPtsMjCxMQiegFygBAMiRRxoNuIUlC5I+sGTTShnJiV637tpjiiotwgvgIQKNLan+rfsTb/wl13EiLqUBmgNvv17qw6B2pnt8Xj/LxjAdB04t89/1O/w1cDnyilFU=";
  
