@@ -1,19 +1,5 @@
 <?php
-$objConnect = mysql_connect("localhost","root","") or die("Error Connect to Database");
-$objDB = mysql_select_db("arduino");
-$strSQL = "SELECT * FROM temp";
-$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-?>
-<table width="600" border="1" align="center">
-  <tr>
-    <th width="91"> <div align="center">ID </div></th>
-    <th width="98"> <div align="center">TEMP </div></th>
- <th width="98"> <div align="center">Humidity </div></th>
-    <th width="198"> <div align="center">DATE </div></th>
-  
-  </tr>
-<?php
-while($objResult = mysql_fetch_array($objQuery))
+/*while($objResult = mysql_fetch_array($objQuery))
 {
 ?>
   <tr>
@@ -21,12 +7,9 @@ while($objResult = mysql_fetch_array($objQuery))
     <td align="center"><?php echo $objResult["temp"];?></td>
  <td align="center"><?php echo $objResult["humidity"];?></td>
     <td align="center"><?php echo $objResult["date"];?></td>
-  </tr>
+  </tr>*/
 <?php
 }
-?>
-</table>
-<?php
 mysql_close($objConnect);
 ///////////////////////////////////////////////////////////////***////////////////////////////////////////
  
