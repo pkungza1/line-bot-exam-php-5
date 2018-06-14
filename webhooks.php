@@ -4,11 +4,6 @@ $objDB = mysql_select_db("arduino");
 $strSQL = "SELECT * FROM temp";
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
 ?>
-<?php
-while($objResult = mysql_fetch_array($objQuery))
-{
-?>
-
 
 <?php
 $strAccessToken = "sSDv7p584jZ76zRoS3qc1n2VgpPeCRWlIsnYKAiYMR8xcWYPtsMjCxMQiegFygBAMiRRxoNuIUlC5I+sGTTShnJiV637tpjiiotwgvgIQKNLan+rfsTb/wl13EiLqUBmgNvv17qw6B2pnt8Xj/LxjAdB04t89/1O/w1cDnyilFU=";
@@ -54,8 +49,4 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close ($ch);
-?>
-
-<?php
- mysql_close($objConnect);
 ?>
